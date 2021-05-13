@@ -12,18 +12,9 @@ public class Car {
 	@GeneratedValue
 	private Long Id;
 	
-	
-	private String name;
-	private String type;
-	
-	public Car() {
-		
-	}
 
-	public Car(String name, String type) {
+	public Car(String string, String string2) {
 		// TODO Auto-generated constructor stub
-		this.name=name;
-		this.type= type;
 	}
 
 	public IntPredicate getName() {
