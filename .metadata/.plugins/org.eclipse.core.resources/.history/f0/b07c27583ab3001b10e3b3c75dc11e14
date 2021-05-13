@@ -1,0 +1,34 @@
+package com.example.demo.services;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.aspectj.lang.annotation.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import com.example.demo.Entity.Car;
+import com.example.demo.repository.CarRepository;
+import static org.mockito.BDDMockito.*;
+@RunWith(MockitoJUnitRunner.class)
+public class CarServiceTest {
+
+	@Mock
+	private CarRepository carRepository;
+	
+	private CarService carService;
+	
+	@Before(value = "")
+	public void setUp() throws Exception{
+		carService = new CarService(carRepository);
+	}
+	@Test
+	public void getCarInfo() {
+		given(carRepository.findByName("pirus")).willReturn(new Car("pirus","hybrid"));
+		Car car = carService.getCarDetails("pirus");
+		assertThat(car.getName()).isEqualTo("pirus");
+		assertThat(car.getType()).isEqualTo("hybrid");
+		
+	}
+}

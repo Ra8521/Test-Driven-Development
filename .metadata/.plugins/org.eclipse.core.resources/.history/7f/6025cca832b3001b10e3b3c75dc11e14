@@ -1,0 +1,10 @@
+package com.example.demo.services;
+
+public class CarService {
+	
+	public String CarDetails(String carName) {
+		return carName;
+		
+	}
+
+}

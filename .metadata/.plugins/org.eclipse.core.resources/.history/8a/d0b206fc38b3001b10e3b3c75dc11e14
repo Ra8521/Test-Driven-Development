@@ -1,0 +1,22 @@
+package com.example.demo.services;
+
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+
+import com.example.demo.repository.CarRepository;
+
+@RunWith(MockitoJUnitRunner.class)
+public class CarServiceTest {
+
+	@Mock
+	private CarRepository carRepository;
+	
+	private CarService carService;
+	
+	@Before
+	public void setUp() throws Exception{
+		carService = new CarService(carRepository);
+	}
+	
+}
